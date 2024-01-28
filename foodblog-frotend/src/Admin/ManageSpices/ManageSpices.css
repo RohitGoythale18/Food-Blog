@@ -1,0 +1,30 @@
+.manage-spices-container{
+    /* border: 2px solid red; */
+    width: 95%;
+    margin: 20px auto;
+    /* height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#manage-spices-head{
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.manage-spices-div{
+    border-radius: 10px;
+    width: 95%;
+    margin: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.recipe-records{
+    width: 100%;
+}
+
+th, td{
+    padding: 10px;
+    font-size: 1.1rem;
+}

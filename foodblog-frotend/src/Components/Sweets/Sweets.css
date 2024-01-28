@@ -1,0 +1,39 @@
+.veg-container,
+.non-veg-container{
+    /* border: 2px solid red; */
+    text-align: center;
+    width: 95%;
+    margin: 10px auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.recipe-div{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.recipe-imgs{
+    /* border: 2px solid green; */
+    height: 35vh;
+    width: 20vw;
+    margin: 5px 10px;
+}
+
+.recipe-name{
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+.recipe-name:hover{
+    text-decoration: underline;
+    color: blue;
+}

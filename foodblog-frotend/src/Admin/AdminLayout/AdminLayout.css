@@ -1,0 +1,9 @@
+.admin-layout{
+    display: flex;
+    max-height: 100vh;
+}
+
+.outlet-design{
+    width: 100%;
+    overflow: auto;
+}

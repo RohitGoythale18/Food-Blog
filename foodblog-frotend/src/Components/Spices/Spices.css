@@ -1,0 +1,21 @@
+/* .veg-container::-webkit-scrollbar,
+.non-veg-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.veg-container::-webkit-scrollbar-thumb,
+.non-veg-container::-webkit-scrollbar-thumb {
+    background-color: #777;
+    border-radius: 50px;
+}
+
+.veg-container::-webkit-scrollbar-thumb:hover,
+.non-veg-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.veg-container::-webkit-scrollbar-track,
+.non-veg-container::-webkit-scrollbar-track {
+    background-color: #eee;
+} */
