@@ -3,11 +3,12 @@ import './ManageSweets.css'
 import Modal from 'react-modal'
 import { FaPenToSquare } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+import { IoEye } from "react-icons/io5";
 
 import CRUD from '../../Components/Headbar/CRUD'
 import UpdateRecipe from '../Modals/UpdateRecipe';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import moment from 'moment/moment';
 
 Modal.setAppElement('#root');
 
@@ -43,15 +44,13 @@ export default function ManageSweets() {
   const fetchData = async () => {
     const res = await axios.get('http://localhost:8080/api/get-recipe')
     .then((res) => {
-      console.log("fetching");
       const result = res.data;
-      return result;
+      setData(result);
+      console.log("fetched...!");
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
-    });
-    
-    
+    });    
   };
 
   useEffect(() => {
@@ -71,8 +70,10 @@ export default function ManageSweets() {
                 <th className="rowspan">Date</th>
                 <th className="rowspan">Recipe Image</th>
                 <th className="rowspan">Recipe Name</th>
-                <th className="rowspan">Recipe Details</th>
-                <th className="rowspan" colSpan={2}>Action</th>
+                <th className="rowspan" colSpan={3}>Action</th>
+                {/* <th className="rowspan">Type</th> */}
+                <th className="rowspan">Ingredients</th>
+                <th className="rowspan">Steps</th>
               </tr>
             </thead>
             <tbody>
@@ -80,13 +81,15 @@ export default function ManageSweets() {
                 Data.map((item, index) =>
                   <tr key={item._id}>
                     <td>{index + 1}</td>
-                    <td>{item.recipeName}</td>
-                    <td>{item.recipeIngredients}</td>
-                    <td>{item.recipeSteps}</td>
-                    <td>{item.recipeType}</td>
-                    <td>{item.recipeImg}</td>
+                    <td>{moment(item.lastDate).format("DD-MM-yyyy")}</td>
+                    <td><img src={`http://localhost:8080/${item.recipeImg}`} alt="Recipe Image" /></td>
+                    <td>{item.name}</td>
+                    <td><IoEye /></td>
                     <td><FaPenToSquare onClick={() => openModal("update")} /></td>
                     <td><MdDelete /></td>
+                    {/* <td>{item.type}</td> */}
+                    <td>{item.ingredients}</td>
+                    <td>{item.steps}</td>
                     <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
                       {operationType === "update" && <UpdateRecipe closeModal={closeModal} />}
                     </Modal>
